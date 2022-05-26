@@ -52,6 +52,7 @@ export const Box = styled.section`
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
         box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.053);
+        margin-bottom: 0px;
     }
 
     @media(max-width: 600px){

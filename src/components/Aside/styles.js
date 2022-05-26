@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const Aside = styled.aside`
-    position: absolute;
+    position: fixed;
     left: 0px;
     
     width: 10%;

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { Listing } from '../components/Listing'
 import { Option } from '../components/Option'
 import { TabsPanel } from '../components/Tabs'
 
@@ -15,6 +16,7 @@ const Organization: NextPage = () => {
       <TabsPanel />
       <Option />
      </Component.Box>
+     <Listing />
    </Component.Main>
   )
 }
