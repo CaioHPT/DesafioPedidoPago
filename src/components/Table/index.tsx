@@ -9,12 +9,9 @@ import { MenuMore } from '../Menu';
 import IconMore from '../../assets/more-vertical.svg'
 import ArrowLeft from '../../assets/arrowLeft.svg'
 import ArrowRight from '../../assets/arrowRight.svg'
+import { TabSelectedContext } from '../../context/TabSelected';
 
-interface TableDataProps {
-    isContributorsscreen: boolean
-}
-
-export function TableData({ isContributorsscreen }: TableDataProps) {
+export function TableData() {
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -26,10 +23,11 @@ export function TableData({ isContributorsscreen }: TableDataProps) {
     };
 
     const [contributors, setContributors] = useState<Contributor[]>([])
-
     const [roles, setRoles] = useState<Role[]>([])
 
-    if (isContributorsscreen) {
+    const { nameTabSelected } = React.useContext(TabSelectedContext)
+
+    if (nameTabSelected === "Colaboradores") {
         useEffect(() => {
             getContributors().then((response) => {
                 setContributors(response.items.slice(0, 5))
@@ -44,7 +42,7 @@ export function TableData({ isContributorsscreen }: TableDataProps) {
 
     return (
         <>
-            {isContributorsscreen ? (
+            {nameTabSelected === "Colaboradores" ? (
                 <>
                     {open ? <MenuMore open={open} anchorEl={anchorEl} handleClick={handleClick}
                         handleClose={handleClose} isContributorsscreen={true} /> : null}

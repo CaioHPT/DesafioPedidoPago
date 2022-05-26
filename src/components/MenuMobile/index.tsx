@@ -10,19 +10,19 @@ import Edit from '../../assets/edit.svg'
 import Duplicate from '../../assets/duplicate.svg'
 
 import { MenuItem } from '@mui/material';
+import { useContext } from 'react';
+import { TabSelectedContext } from '../../context/TabSelected';
 
 interface MenuMobileProps {
     open: boolean
-    handleClick: () => void
     handleClose: () => void
-    isContributorsscreen: boolean
 }
 
 export function MenuMobile({
     open,
-    isContributorsscreen,
-    handleClick,
     handleClose }: MenuMobileProps) {
+
+    const { setNameTabSelected } = useContext(TabSelectedContext)
 
     return (
         <>
@@ -35,10 +35,10 @@ export function MenuMobile({
                             <Component.IconClose src={CloseIcon.src} onClick={handleClose}/>
                         </Component.HeaderMenu>
                         <MenuItem sx={{ padding: '20px 0px'}}>
-                            <Component.Text>Colaboradores</Component.Text>
+                            <Component.Text onClick={() => setNameTabSelected("Colaboradores")}>Colaboradores</Component.Text>
                         </MenuItem>
                         <MenuItem sx={{ padding: '20px 0px' }}>
-                            <Component.Text>Cargos</Component.Text>
+                            <Component.Text onClick={() => setNameTabSelected("Cargos")}>Cargos</Component.Text>
                         </MenuItem>
                         {/* <MenuItem sx={{ padding: '15px 30px' }}>
                             <Component.Item>

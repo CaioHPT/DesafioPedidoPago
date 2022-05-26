@@ -5,7 +5,7 @@ interface StatusProps{
 }
 
 export const Container = styled.section`
-    padding: 20px 15px;
+    padding: 10px 15px;
     width: 100%;
 
     border: 2px solid #B5F1DD;

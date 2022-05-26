@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { SearchInput } from '../SearchInput';
 import { TableData } from '../Table';
+import { TabSelectedContext } from '../../context/TabSelected';
 
 const theme = createTheme({
     palette: {
@@ -67,6 +68,8 @@ function a11yProps(index: number) {
 }
 
 export function TabsPanel() {
+    const { setNameTabSelected } = React.useContext(TabSelectedContext)
+
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -79,17 +82,17 @@ export function TabsPanel() {
                 <Box sx={{ width: '100%' }}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" indicatorColor="secondary">
-                            <CustomTab label="Colaboradores" {...a11yProps(0)} />
-                            <CustomTab label="Cargos" {...a11yProps(1)} />
+                            <CustomTab label="Colaboradores" {...a11yProps(0)} onClick={() => setNameTabSelected("Colaboradores")}/>
+                            <CustomTab label="Cargos" {...a11yProps(1)} onClick={() => setNameTabSelected("Cargos")}/>
                         </Tabs>
                     </Box>
                     <TabPanel value={value} index={0}>
                         <SearchInput textDefault="Pesquise por nome ou cpf" />
-                        <TableData isContributorsscreen={true} />
+                        <TableData/>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <SearchInput textDefault="Pesquise por cargos" />
-                        <TableData isContributorsscreen={false} />
+                        <TableData/>
                     </TabPanel>
                 </Box>
             </ThemeProvider>
