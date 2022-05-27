@@ -88,10 +88,12 @@ export function TabsPanel() {
                     </Box>
                     <TabPanel value={value} index={0}>
                         <SearchInput textDefault="Pesquise por nome ou cpf" />
+                        <Component.HeaderText>Listagem de colaboradores</Component.HeaderText>
                         <TableData/>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <SearchInput textDefault="Pesquise por cargos" />
+                        <Component.HeaderText>Listagem de cargos</Component.HeaderText>
                         <TableData/>
                     </TabPanel>
                 </Box>

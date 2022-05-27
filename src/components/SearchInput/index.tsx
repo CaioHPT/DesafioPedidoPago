@@ -14,7 +14,7 @@ const CustomTextField = styled(TextField)(() => ({
         '& fieldset': {
             borderColor: '#CAD6D1',
             borderWidth: '2px',
-            borderRadius: '7px',
+            borderRadius: '10px',
             transition: 'all .3s ease-in-out',
         },
         '&.Mui-focused fieldset': {
