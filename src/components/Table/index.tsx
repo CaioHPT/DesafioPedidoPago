@@ -1,9 +1,7 @@
 import * as Component from './styles'
 import * as React from 'react';
 
-import { useEffect, useState } from 'react'
-import { Contributor, getContributors } from '../../services/ContributorsService'
-import { getRoles, Role } from '../../services/RolesService'
+import { useState } from 'react'
 import { MenuMore } from '../Menu';
 
 import IconMore from '../../assets/more-vertical.svg'
@@ -11,10 +9,11 @@ import ArrowLeft from '../../assets/arrowLeft.svg'
 import ArrowRight from '../../assets/arrowRight.svg'
 import { TabSelectedContext } from '../../context/TabSelected';
 import { ContributorsDataContext } from '../../context/ContributorsData';
+import { RolesDataContext } from '../../context/RolesData';
 
 export function TableData() {
 
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -23,8 +22,9 @@ export function TableData() {
         setAnchorEl(null);
     };
 
-    const [roles, setRoles] = useState<Role[]>([])
-    const [{ contributorsDataFilter }] = React.useContext(ContributorsDataContext)
+    const [{ rolesData }] = React.useContext(RolesDataContext)
+    const [{ contributorsData }] = React.useContext(ContributorsDataContext)
+
 
     const { nameTabSelected } = React.useContext(TabSelectedContext)
 
@@ -46,7 +46,7 @@ export function TableData() {
                             </Component.Tr>
                         </Component.Thead>
                         <Component.Tbody>
-                            {contributorsDataFilter.map((contributor) => (
+                            {contributorsData.slice(0,5).map((contributor) => (
                                 <Component.Tr key={contributor.agent_id}>
                                     <Component.Td isActive={contributor.status === 'active' ? true : false}>
                                         <Component.UserNameAndAvatar >
@@ -107,7 +107,7 @@ export function TableData() {
                             </Component.Tr>
                         </Component.Thead>
                         <Component.Tbody>
-                            {roles.map((contributor, index) => (
+                            {rolesData.slice(0,5).map((contributor, index) => (
                                 <Component.Tr key={index}>
                                     <Component.Td isActive={true}>{contributor.name}</Component.Td>
                                     <Component.Td isActive={true}>{contributor.departament}</Component.Td>

@@ -4,6 +4,7 @@ import { NavBar } from '../components/NavBar'
 import { Aside } from '../components/Aside'
 import { TabSelectedProvider } from '../context/TabSelected'
 import { ContributorsDataProvider } from '../context/ContributorsData'
+import { RolesDataProvider } from '../context/RolesData'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,9 +12,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NavBar />
       <Aside />
       <ContributorsDataProvider>
-        <TabSelectedProvider>
-          <Component {...pageProps} />
-        </TabSelectedProvider>
+        <RolesDataProvider>
+          <TabSelectedProvider>
+            <Component {...pageProps} />
+          </TabSelectedProvider>
+        </RolesDataProvider>
       </ContributorsDataProvider>
     </>
   )
