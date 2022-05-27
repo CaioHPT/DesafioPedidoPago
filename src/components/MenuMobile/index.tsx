@@ -16,56 +16,86 @@ import { TabSelectedContext } from '../../context/TabSelected';
 interface MenuMobileProps {
     open: boolean
     handleClose: () => void
+    isClickToAction?: boolean
 }
 
-export function MenuMobile({
-    open,
-    handleClose }: MenuMobileProps) {
+export function MenuMobile({ open, handleClose, isClickToAction }: MenuMobileProps) {
 
     const { setNameTabSelected } = useContext(TabSelectedContext)
 
     return (
         <>
-            {open && <Component.Container/>}
+            {open && <Component.Container />}
             <Slide direction="up" in={open} mountOnEnter unmountOnExit timeout={{ exit: 700, enter: 650 }}>
-                <Component.ContainerMenu onClick={handleClose}>
-                    <Component.MenuMobile>
-                        <Component.HeaderMenu>
-                            <Component.TextHeader>Categorias</Component.TextHeader>
-                            <Component.IconClose src={CloseIcon.src} onClick={handleClose}/>
-                        </Component.HeaderMenu>
-                        <MenuItem sx={{ padding: '20px 0px'}}>
-                            <Component.Text onClick={() => setNameTabSelected("Colaboradores")}>Colaboradores</Component.Text>
-                        </MenuItem>
-                        <MenuItem sx={{ padding: '20px 0px' }}>
-                            <Component.Text onClick={() => setNameTabSelected("Cargos")}>Cargos</Component.Text>
-                        </MenuItem>
-                        {/* <MenuItem sx={{ padding: '15px 30px' }}>
-                            <Component.Item>
-                                <Component.Icon src={Eye.src} />
-                                <Component.Text>Ver cargo</Component.Text>
-                            </Component.Item>
-                        </MenuItem>
-                        <MenuItem sx={{ padding: '15px 30px' }} disabled>
-                            <Component.Item>
-                                <Component.Icon src={Edit.src} />
-                                <Component.Text>Editar</Component.Text>
-                            </Component.Item>
-                        </MenuItem>
-                        <MenuItem sx={{ padding: '15px 30px' }} disabled>
-                            <Component.Item>
-                                <Component.Icon src={Duplicate.src} />
-                                <Component.Text>Duplicar</Component.Text>
-                            </Component.Item>
-                        </MenuItem>
-                        <MenuItem sx={{ padding: '15px 30px' }} disabled>
-                            <Component.Item>
-                                <Component.Icon src={Repeat.src} />
-                                <Component.Text>Excluir</Component.Text>
-                            </Component.Item>
-                        </MenuItem> */}
-                    </Component.MenuMobile>
-                </Component.ContainerMenu>
+                {isClickToAction ?
+                    <Component.ContainerMenu onClick={handleClose}>
+                        <Component.MenuMobile>
+                            <MenuItem sx={{ padding: '10px' }}>
+                                <Component.Item>
+                                    <Component.Icon src={Eye.src} />
+                                    <Component.Text>Ver cargo</Component.Text>
+                                </Component.Item>
+                            </MenuItem>
+                            <MenuItem sx={{ padding: '10px' }} disabled>
+                                <Component.Item>
+                                    <Component.Icon src={Edit.src} />
+                                    <Component.Text>Editar</Component.Text>
+                                </Component.Item>
+                            </MenuItem>
+                            <MenuItem sx={{ padding: '10px' }} disabled>
+                                <Component.Item>
+                                    <Component.Icon src={Duplicate.src} />
+                                    <Component.Text>Duplicar</Component.Text>
+                                </Component.Item>
+                            </MenuItem>
+                            <MenuItem sx={{ padding: '10px' }} disabled>
+                                <Component.Item>
+                                    <Component.Icon src={Repeat.src} />
+                                    <Component.Text>Excluir</Component.Text>
+                                </Component.Item>
+                            </MenuItem>
+                        </Component.MenuMobile>
+                    </Component.ContainerMenu>
+                    :
+                    <Component.ContainerMenu onClick={handleClose}>
+                        <Component.MenuMobile>
+                            <Component.HeaderMenu>
+                                <Component.TextHeader>Categorias</Component.TextHeader>
+                                <Component.IconClose src={CloseIcon.src} onClick={handleClose} />
+                            </Component.HeaderMenu>
+                            <MenuItem sx={{ padding: '20px 0px' }}>
+                                <Component.Text onClick={() => setNameTabSelected("Colaboradores")}>Colaboradores</Component.Text>
+                            </MenuItem>
+                            <MenuItem sx={{ padding: '20px 0px' }}>
+                                <Component.Text onClick={() => setNameTabSelected("Cargos")}>Cargos</Component.Text>
+                            </MenuItem>
+                            {/* <MenuItem sx={{ padding: '15px 30px' }}>
+                        <Component.Item>
+                            <Component.Icon src={Eye.src} />
+                            <Component.Text>Ver cargo</Component.Text>
+                        </Component.Item>
+                    </MenuItem>
+                    <MenuItem sx={{ padding: '15px 30px' }} disabled>
+                        <Component.Item>
+                            <Component.Icon src={Edit.src} />
+                            <Component.Text>Editar</Component.Text>
+                        </Component.Item>
+                    </MenuItem>
+                    <MenuItem sx={{ padding: '15px 30px' }} disabled>
+                        <Component.Item>
+                            <Component.Icon src={Duplicate.src} />
+                            <Component.Text>Duplicar</Component.Text>
+                        </Component.Item>
+                    </MenuItem>
+                    <MenuItem sx={{ padding: '15px 30px' }} disabled>
+                        <Component.Item>
+                            <Component.Icon src={Repeat.src} />
+                            <Component.Text>Excluir</Component.Text>
+                        </Component.Item>
+                    </MenuItem> */}
+                        </Component.MenuMobile>
+                    </Component.ContainerMenu>
+                }
             </Slide></>
 
     );

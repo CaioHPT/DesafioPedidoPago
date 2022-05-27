@@ -42,7 +42,7 @@ export const ContainerMenu = styled.div`
 export const MenuMobile = styled.div`
     width: 60%;
     height: 30vh;
-    padding: 30px;
+    padding: 25px 30px;
     
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.100);
 

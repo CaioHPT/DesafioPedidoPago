@@ -10,6 +10,7 @@ import { styled } from '@mui/material/styles';
 
 import FileIcon from '../../assets/file-plus.svg'
 import { TabSelectedContext } from '../../context/TabSelected';
+import { MenuMobile } from '../MenuMobile';
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -23,6 +24,10 @@ export function AccordionItem() {
 
     const { nameTabSelected } = React.useContext(TabSelectedContext)
 
+    const [openMenu, setOpenMenu] = React.useState(false)
+
+    const handleMobileClick = () => setOpenMenu(true)
+    const handleMobileClose = () => setOpenMenu(false)
 
     const handleChange =
         (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -81,11 +86,11 @@ export function AccordionItem() {
                                 </Component.Item>
                             </Component.Items>
                         </Component.Details>
-                        <Component.Action>
+                        <Component.Action >
                             <Component.Icon src={FileIcon.src} />
                             Ações
                         </Component.Action>
-                    </AccordionDetails>
+                    </AccordionDetails> 
                 </Accordion>
                 :
                 <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -114,11 +119,12 @@ export function AccordionItem() {
                                 </Component.Item>
                             </Component.Items>
                         </Component.Details>
-                        <Component.Action>
-                            <Component.Icon src={FileIcon.src} />
+                        <Component.Action  onClick={handleMobileClick}>
+                            <Component.Icon src={FileIcon.src}/>
                             Ações
                         </Component.Action>
                     </AccordionDetails>
+                    <MenuMobile open={openMenu} handleClose={handleMobileClose} isClickToAction={true}/> 
                 </Accordion>}
         </Component.Container>
     )

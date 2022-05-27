@@ -107,6 +107,7 @@ export const Status = styled.div`
 export const Action = styled.button`
     width: 100%;
 
+    margin-top: 15px;
     padding: 15px 0px;
 
     background: #fff;

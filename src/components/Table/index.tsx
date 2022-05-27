@@ -10,6 +10,7 @@ import IconMore from '../../assets/more-vertical.svg'
 import ArrowLeft from '../../assets/arrowLeft.svg'
 import ArrowRight from '../../assets/arrowRight.svg'
 import { TabSelectedContext } from '../../context/TabSelected';
+import { ContributorsDataContext } from '../../context/ContributorsData';
 
 export function TableData() {
 
@@ -22,23 +23,10 @@ export function TableData() {
         setAnchorEl(null);
     };
 
-    const [contributors, setContributors] = useState<Contributor[]>([])
     const [roles, setRoles] = useState<Role[]>([])
+    const [{ contributorsDataFilter }] = React.useContext(ContributorsDataContext)
 
     const { nameTabSelected } = React.useContext(TabSelectedContext)
-
-    if (nameTabSelected === "Colaboradores") {
-        useEffect(() => {
-            getContributors().then((response) => {
-                setContributors(response.items.slice(0, 5))
-            })
-        }
-            , [])
-    } else {
-        useEffect(() => {
-            getRoles().then((response) => setRoles(response.roles.slice(0, 5)))
-        }, [])
-    }
 
     return (
         <>
@@ -58,7 +46,7 @@ export function TableData() {
                             </Component.Tr>
                         </Component.Thead>
                         <Component.Tbody>
-                            {contributors.map((contributor) => (
+                            {contributorsDataFilter.map((contributor) => (
                                 <Component.Tr key={contributor.agent_id}>
                                     <Component.Td isActive={contributor.status === 'active' ? true : false}>
                                         <Component.UserNameAndAvatar >
