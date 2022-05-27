@@ -20,7 +20,7 @@ export const Title = styled.p`
     font-size: 13px;
     line-height: 16.8px;
 
-    color: #587169;
+    color: ${({isActive}: StatusProps)  => (isActive ? '#587169': '#A3B8B0')};
 
     margin: 0px;
 `
@@ -32,11 +32,18 @@ export const UsernameAndAvatar = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    margin-top: 5px;
 `
 
 
 export const Avatar = styled.img`
+    width: 32px;
+    height: 32px;
 
+    border-radius: 50%;
+
+    filter:${({isActive}: StatusProps)  => (isActive ? 'opacity(100%)': 'opacity(35%)')};
 `
 
 export const Username = styled.span`
@@ -46,7 +53,7 @@ export const Username = styled.span`
     font-size: 13px;
     line-height: 16.8px;
 
-    color: #587169;
+    color: ${({isActive}: StatusProps)  => (isActive ? '#587169': '#A3B8B0')};
 
     margin-left: 5px;
 
@@ -85,7 +92,7 @@ export const Description = styled.span`
     font-size: 13px;
     line-height: 16.8px;
 
-    color: #587169;
+    color: ${({isActive}: StatusProps)  => (isActive ? '#587169': '#A3B8B0')};
 `
 export const Status = styled.div`
     background: ${({isActive}: StatusProps)  => (isActive ? "#B5F1DD" : "#EAEFED")};
