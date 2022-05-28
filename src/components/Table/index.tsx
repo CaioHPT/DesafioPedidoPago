@@ -15,11 +15,28 @@ export function TableData() {
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
-    const handleClose = () => {
-        setAnchorEl(null);
+
+    
+    const handleClose = (item?: any) => {
+        try{
+            if (item.target.children[1].textContent.toUpperCase() === 'VER COLABORADOR') {
+                setAnchorEl(null);
+                window.location.href = "/details/contributors"
+            }
+            else if (item.target.children[1].textContent.toUpperCase() === 'VER CARGO') {
+                setAnchorEl(null);
+                window.location.href = "/details/roles"
+            }
+            else {
+                setAnchorEl(null);
+            }
+        }catch{
+            setAnchorEl(null);
+        }
     };
 
     const [{ rolesData }] = React.useContext(RolesDataContext)
@@ -46,7 +63,7 @@ export function TableData() {
                             </Component.Tr>
                         </Component.Thead>
                         <Component.Tbody>
-                            {contributorsData.slice(0,5).map((contributor) => (
+                            {contributorsData.slice(0, 5).map((contributor) => (
                                 <Component.Tr key={contributor.agent_id}>
                                     <Component.Td isActive={contributor.status === 'active' ? true : false}>
                                         <Component.UserNameAndAvatar >
@@ -107,7 +124,7 @@ export function TableData() {
                             </Component.Tr>
                         </Component.Thead>
                         <Component.Tbody>
-                            {rolesData.slice(0,5).map((contributor, index) => (
+                            {rolesData.slice(0, 5).map((contributor, index) => (
                                 <Component.Tr key={index}>
                                     <Component.Td isActive={true}>{contributor.name}</Component.Td>
                                     <Component.Td isActive={true}>{contributor.departament}</Component.Td>

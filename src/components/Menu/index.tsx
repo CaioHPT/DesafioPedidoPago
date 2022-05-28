@@ -10,6 +10,7 @@ import Trash from '../../assets/trash-2.svg'
 import Repeat from '../../assets/repeat.svg'
 import Edit from '../../assets/edit.svg'
 import Duplicate from '../../assets/duplicate.svg'
+import Link from 'next/link';
 
 interface MenuMoreProps {
     anchorEl: React.ComponentState
@@ -20,14 +21,14 @@ interface MenuMoreProps {
 }
 
 export function MenuMore({ anchorEl, handleClose, handleClick, open, isContributorsscreen }: MenuMoreProps) {
+
     return (
         <Menu
             anchorEl={anchorEl}
             id="account-menu"
             open={open}
             onClose={handleClose}
-            onClick={handleClick}
-            onClickCapture={handleClose}
+            onClick={handleClose}
             PaperProps={{
                 elevation: 0,
                 sx: {
@@ -43,12 +44,14 @@ export function MenuMore({ anchorEl, handleClose, handleClick, open, isContribut
         >
             {isContributorsscreen ?
                 <Component.ListItensMenu>
-                    <MenuItem sx={{ padding: '15px 30px' }}>
-                        <Component.Item>
-                            <Component.Icon src={Eye.src} />
-                            <Component.Text>Ver colaborador</Component.Text>
-                        </Component.Item>
-                    </MenuItem>
+                    <Link href="/details/contributors" >
+                        <MenuItem sx={{ padding: '15px 30px' }} onClick={() => handleClose()}>
+                            <Component.Item>
+                                <Component.Icon src={Eye.src} />
+                                <Component.Text>Ver colaborador</Component.Text>
+                            </Component.Item>
+                        </MenuItem>
+                    </Link>
                     <MenuItem sx={{ padding: '15px 30px' }} disabled>
                         <Component.Item>
                             <Component.Icon src={Trash.src} />
@@ -57,12 +60,14 @@ export function MenuMore({ anchorEl, handleClose, handleClick, open, isContribut
                     </MenuItem>
                 </Component.ListItensMenu> :
                 <Component.ListItensMenu>
-                    <MenuItem sx={{ padding: '15px 30px' }}>
-                        <Component.Item>
-                            <Component.Icon src={Eye.src} />
-                            <Component.Text>Ver cargo</Component.Text>
-                        </Component.Item>
-                    </MenuItem>
+                    <Link href="/details/roles">
+                        <MenuItem sx={{ padding: '15px 30px' }} onClick={() => handleClose()}>
+                            <Component.Item>
+                                <Component.Icon src={Eye.src} />
+                                <Component.Text>Ver cargo</Component.Text>
+                            </Component.Item>
+                        </MenuItem>
+                    </Link>
                     <MenuItem sx={{ padding: '15px 30px' }} disabled>
                         <Component.Item>
                             <Component.Icon src={Edit.src} />

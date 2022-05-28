@@ -17,6 +17,7 @@ export const NavBar = styled.nav`
 
     @media(max-width: 800px){
         padding: 10px 0px;
+        justify-content: center;
     }
 `
 
@@ -28,13 +29,10 @@ export const LogoNav = styled.div`
     border: 1px solid rgb(243, 243, 243);
 
     @media(max-width: 800px){
-        position: absolute;
-        top: 12px;
-        right: 50%;
-        border: none;
         padding: 0px;
+        border: none;
     }
-    `
+`
 
 export const ImageLogo = styled.img`
     width: 100%;
@@ -76,6 +74,8 @@ export const UserImage = styled.div`
 
     @media(max-width: 800px){
         padding: 20px;
+        position: absolute;
+        left: 5px;
     }
 `
 

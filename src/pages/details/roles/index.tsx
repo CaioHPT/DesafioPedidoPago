@@ -1,12 +1,13 @@
-import { NextPage } from "next";
 import Link from "next/link";
 
-import * as Component from './styles'
+import * as Component from '../../../styles/stylesDetailsRoles'
 
 import ArrowLeft from '../../../assets/arrowToBack.svg'
-import styled from "@emotion/styled";
 import { TextField } from "@mui/material";
 import { Permissions } from "../../../components/Permissions";
+import { styled } from "@mui/system";
+import { getRolesById, RoleDetails } from "../../../services/RolesService";
+import { GetStaticProps } from "next";
 
 const CustomTextField = styled(TextField)(() => ({
     '& label.Mui-focused': {
@@ -39,7 +40,10 @@ const CustomTextField = styled(TextField)(() => ({
     }
 }));
 
-const RolesDetails: NextPage = () => {
+
+
+const RolesDetails = ({role} : RoleDetails) => {
+    
     return (
         <Component.Main>
             <Component.DivTitle>
@@ -55,8 +59,8 @@ const RolesDetails: NextPage = () => {
                 <Component.InputsData>
                     <CustomTextField
                         id="outlined-required"
-                        label="Pesquisar por"
-                        defaultValue="deafult"
+                        label="Departamento"
+                        defaultValue={role.department}
                         fullWidth={true}
                         InputLabelProps={{
                             shrink: true,
@@ -65,8 +69,8 @@ const RolesDetails: NextPage = () => {
                     />
                     <CustomTextField
                         id="outlined-required"
-                        label="Pesquisar por"
-                        defaultValue="deafult"
+                        label="Cargo"
+                        defaultValue={role.name}
                         fullWidth={true}
                         InputLabelProps={{
                             shrink: true,
@@ -75,9 +79,20 @@ const RolesDetails: NextPage = () => {
                     />
                 </Component.InputsData>
             </Component.Box>
-            <Permissions />
+            <Permissions role={role}/>
         </Component.Main>
     )
 }
 
 export default RolesDetails
+
+export const getStaticProps: GetStaticProps = async () => {
+    const data = (await getRolesById(1)).role
+
+    return {
+        props: {
+            role: data
+        },
+        revalidate: 10
+    }
+}

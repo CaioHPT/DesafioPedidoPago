@@ -30,49 +30,51 @@ export function MenuMobile({ open, handleClose, isClickToAction }: MenuMobilePro
                 {isClickToAction ?
                     <Component.ContainerMenu onClick={handleClose}>
                         <Component.MenuMobile>
-                            <MenuItem sx={{ padding: '10px' }}>
-                                <Component.Item>
-                                    <Component.Icon src={Eye.src} />
-                                    <Component.Text>Ver cargo</Component.Text>
-                                </Component.Item>
-                            </MenuItem>
-                            <MenuItem sx={{ padding: '10px' }} disabled>
-                                <Component.Item>
-                                    <Component.Icon src={Edit.src} />
-                                    <Component.Text>Editar</Component.Text>
-                                </Component.Item>
-                            </MenuItem>
-                            <MenuItem sx={{ padding: '10px' }} disabled>
-                                <Component.Item>
-                                    <Component.Icon src={Duplicate.src} />
-                                    <Component.Text>Duplicar</Component.Text>
-                                </Component.Item>
-                            </MenuItem>
-                            <MenuItem sx={{ padding: '10px' }} disabled>
-                                <Component.Item>
-                                    <Component.Icon src={Repeat.src} />
-                                    <Component.Text>Excluir</Component.Text>
-                                </Component.Item>
-                            </MenuItem>
-                        </Component.MenuMobile>
+                            <MenuItem sx={{ padding: '10px' }} onClick={() => {
+                                window.location.href = "/details/roles"
+                            }}>
+                            <Component.Item>
+                                <Component.Icon src={Eye.src} />
+                                <Component.Text>Ver cargo</Component.Text>
+                            </Component.Item>
+                        </MenuItem>
+                        <MenuItem sx={{ padding: '10px' }} disabled>
+                            <Component.Item>
+                                <Component.Icon src={Edit.src} />
+                                <Component.Text>Editar</Component.Text>
+                            </Component.Item>
+                        </MenuItem>
+                        <MenuItem sx={{ padding: '10px' }} disabled>
+                            <Component.Item>
+                                <Component.Icon src={Duplicate.src} />
+                                <Component.Text>Duplicar</Component.Text>
+                            </Component.Item>
+                        </MenuItem>
+                        <MenuItem sx={{ padding: '10px' }} disabled>
+                            <Component.Item>
+                                <Component.Icon src={Repeat.src} />
+                                <Component.Text>Excluir</Component.Text>
+                            </Component.Item>
+                        </MenuItem>
+                    </Component.MenuMobile>
                     </Component.ContainerMenu>
-                    :
-                    <Component.ContainerMenu onClick={handleClose}>
-                        <Component.MenuMobile>
-                            <Component.HeaderMenu>
-                                <Component.TextHeader>Categorias</Component.TextHeader>
-                                <Component.IconClose src={CloseIcon.src} onClick={handleClose} />
-                            </Component.HeaderMenu>
-                            <MenuItem sx={{ padding: '20px 0px' }}>
-                                <Component.Text onClick={() => setNameTabSelected("Colaboradores")}>Colaboradores</Component.Text>
-                            </MenuItem>
-                            <MenuItem sx={{ padding: '20px 0px' }}>
-                                <Component.Text onClick={() => setNameTabSelected("Cargos")}>Cargos</Component.Text>
-                            </MenuItem>
-                        </Component.MenuMobile>
-                    </Component.ContainerMenu>
+            :
+            <Component.ContainerMenu onClick={handleClose}>
+                <Component.MenuMobile>
+                    <Component.HeaderMenu>
+                        <Component.TextHeader>Categorias</Component.TextHeader>
+                        <Component.IconClose src={CloseIcon.src} onClick={handleClose} />
+                    </Component.HeaderMenu>
+                    <MenuItem sx={{ padding: '20px 0px' }}>
+                        <Component.Text onClick={() => setNameTabSelected("Colaboradores")}>Colaboradores</Component.Text>
+                    </MenuItem>
+                    <MenuItem sx={{ padding: '20px 0px' }}>
+                        <Component.Text onClick={() => setNameTabSelected("Cargos")}>Cargos</Component.Text>
+                    </MenuItem>
+                </Component.MenuMobile>
+            </Component.ContainerMenu>
                 }
-            </Slide></>
+        </Slide></>
 
     );
 }

@@ -36,6 +36,7 @@ export const ContainerMenu = styled.div`
     justify-content: center;
 
     background-color: transparent;
+    
     z-index: 2;
 `
 

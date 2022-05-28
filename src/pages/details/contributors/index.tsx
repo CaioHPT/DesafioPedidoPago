@@ -1,14 +1,11 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticProps } from "next";
 import Link from "next/link";
 
-import * as Component from './styles'
+import * as Component from '../../../styles/stylesDetailsContributors'
 
 import ArrowLeft from '../../../assets/arrowToBack.svg'
 import { Details } from "../../../components/Details";
-import { getContributorById, getContributors } from "../../../services/ContributorsService";
-import { Params } from "next/dist/server/router";
-import { useRouter } from "next/router";
-import { CircularProgress } from "@mui/material";
+import { getContributorById } from "../../../services/ContributorsService";
 
 interface ContributorsDetailsProps {
     contributor: {
@@ -34,17 +31,7 @@ interface ContributorsDetailsProps {
 }
 
 
-const ContributorsDetails = ({ contributor } : ContributorsDetailsProps) => {
-
-    const { isFallback } = useRouter()
-
-    if (isFallback) {
-        return (
-            <Component.Loading>
-                <CircularProgress color="primary" />
-            </Component.Loading>
-        )
-    }
+const ContributorsDetails = ({ contributor } : ContributorsDetailsProps)  => {
 
     return (
         <Component.Main>
@@ -65,21 +52,9 @@ const ContributorsDetails = ({ contributor } : ContributorsDetailsProps) => {
 
 export default ContributorsDetails
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    const data = (await getContributors()).items
 
-    const paths = data.map(contributor => { return { params: { id: contributor.agent_id.toString(), } } })
-
-    return {
-        paths,
-        fallback: true
-    }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
-    const { id } = params
-    const data = (await getContributorById(id)).agent
-    console.log(data)
+export const getStaticProps: GetStaticProps = async () => {
+    const data = (await getContributorById(1)).agent
 
     return {
         props: {

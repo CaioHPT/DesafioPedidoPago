@@ -42,7 +42,7 @@ export async function getContributors() {
     return (await api.get<Contributors>('/agents')).data
 }
 
-export async function getContributorById(Id: number) {
-    return (await api.get<ContributorDetails>(`/agent/${Id}`)).data
+export async function getContributorById(id: number) {
+    return (await api.get<ContributorDetails>(`/agent/${id}`)).data
 
 }

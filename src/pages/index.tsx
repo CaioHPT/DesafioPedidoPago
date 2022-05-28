@@ -1,12 +1,10 @@
-import type { NextPage } from 'next'
 import { Listing } from '../components/Listing'
 import { Option } from '../components/Option'
 import { TabsPanel } from '../components/Tabs'
 
-import * as Component from './stylesIndex'
+import * as Component from '../styles/stylesIndex'
 
-
-const Organization: NextPage = () => {
+const Organization = () => {
   return (
    <Component.Main>
      <Component.DivTitle>
