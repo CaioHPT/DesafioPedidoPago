@@ -1,12 +1,14 @@
 import * as Component from './styles'
-import * as React from 'react';
 
+import * as React from 'react';
 import { useState } from 'react'
+
 import { MenuMore } from '../Menu';
 
 import IconMore from '../../assets/more-vertical.svg'
 import ArrowLeft from '../../assets/arrowLeft.svg'
 import ArrowRight from '../../assets/arrowRight.svg'
+
 import { TabSelectedContext } from '../../context/TabSelected';
 import { ContributorsDataContext } from '../../context/ContributorsData';
 import { RolesDataContext } from '../../context/RolesData';

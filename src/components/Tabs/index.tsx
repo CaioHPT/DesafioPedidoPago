@@ -4,9 +4,12 @@ import * as Component from './styles'
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+
 import { SearchInput } from '../SearchInput';
 import { TableData } from '../Table';
+
 import { TabSelectedContext } from '../../context/TabSelected';
 
 const theme = createTheme({

@@ -1,9 +1,12 @@
 import * as Component from './styles'
 
 import IconMore from '../../assets/more-vertical.svg'
-import { SearchInput } from '../SearchInput'
-import { useContext, useState } from 'react'
+
 import { MenuMobile } from '../MenuMobile'
+import { SearchInput } from '../SearchInput'
+
+import { useContext, useState } from 'react'
+
 import { TabSelectedContext } from '../../context/TabSelected'
 
 

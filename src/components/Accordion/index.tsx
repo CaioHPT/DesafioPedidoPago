@@ -5,12 +5,14 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import { MenuMobile } from '../MenuMobile';
+
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 import { styled } from '@mui/material/styles';
 
 import FileIcon from '../../assets/file-plus.svg'
+
 import { TabSelectedContext } from '../../context/TabSelected';
-import { MenuMobile } from '../MenuMobile';
 import { RolesDataContext } from '../../context/RolesData';
 import { ContributorsDataContext } from '../../context/ContributorsData';
 

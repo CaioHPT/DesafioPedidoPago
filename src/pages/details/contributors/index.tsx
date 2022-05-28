@@ -4,7 +4,9 @@ import Link from "next/link";
 import * as Component from '../../../styles/stylesDetailsContributors'
 
 import ArrowLeft from '../../../assets/arrowToBack.svg'
+
 import { Details } from "../../../components/Details";
+
 import { getContributorById } from "../../../services/ContributorsService";
 
 interface ContributorsDetailsProps {

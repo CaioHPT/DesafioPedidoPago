@@ -1,7 +1,10 @@
 import styled from '@emotion/styled';
-import { Checkbox, CheckboxProps } from '@mui/material'
-import { GrouRoles, RoleDetails } from '../../services/RolesService';
+
 import * as Component from './styles'
+
+import { Checkbox, CheckboxProps } from '@mui/material'
+
+import { RoleDetails } from '../../services/RolesService';
 
 
 const BpIcon = styled('span')(() => ({

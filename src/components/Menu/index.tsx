@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import * as Component from './styles'
 
+import Link from 'next/link';
+
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -10,7 +12,6 @@ import Trash from '../../assets/trash-2.svg'
 import Repeat from '../../assets/repeat.svg'
 import Edit from '../../assets/edit.svg'
 import Duplicate from '../../assets/duplicate.svg'
-import Link from 'next/link';
 
 interface MenuMoreProps {
     anchorEl: React.ComponentState

@@ -1,4 +1,5 @@
 import { AccordionItem } from '../Accordion'
+
 import * as Component from './styles'
 
 import LoadMore from '../../assets/load.svg'
