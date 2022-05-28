@@ -35,7 +35,66 @@ export const Title = styled.h4`
     font-weight: 600;
     line-height: 28px;
 
-    margin-bottom: 20px;
+    @media(max-width: 800px){
+        font-size: 24px;
+    }
+
+    @media(max-width: 600px){
+        font-size: 20px;
+    }
+
+`
+export const IconCircle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    
+    background: #EAEFED;
+
+    border-radius: 50%;
+
+    padding: 5px;
+
+    &:hover{
+        cursor:pointer;
+    }
+`
+
+export const IconToBack = styled.img`
+    @media(max-width: 600px){
+        width: 80%;
+    }
+
+`
+
+export const DivTitle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 55%;
+    margin-left: 10%;
+    
+
+    @media(max-width: 1250px){
+        width: 70%;
+    }
+
+    @media(max-width: 1100px){
+        width: 75%;
+    }
+
+    @media(max-width: 950px){
+        width: 80%;
+    }
+
+    @media(max-width: 800px){
+        margin-left: 0px;
+    }
+
+    @media(max-width: 600px){
+        width: 95%;
+    }
 `
 
 export const Box = styled.section`
@@ -66,10 +125,7 @@ export const Box = styled.section`
 
     @media(max-width: 800px){
         margin-left: 0px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
         box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.053);
-        margin-bottom: 0px;
     }
 
     @media(max-width: 600px){
@@ -78,31 +134,13 @@ export const Box = styled.section`
     }
 `
 
-export const DivTitle = styled.div`
+export const Loading = styled.div`
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    width: 55%;
-    margin-left: 10%;
-
-
-    @media(max-width: 1250px){
-        width: 60%;
-    }
-
-    @media(max-width: 1100px){
-        width: 70%;
-    }
-
-    @media(max-width: 950px){
-        width: 75%;
-    }
-
-    @media(max-width: 800px){
-        margin-left: 0px;
-    }
-
-    @media(max-width: 600px){
-        width: 95%;
-    }
+    justify-content: center;
 `

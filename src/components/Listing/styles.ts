@@ -15,6 +15,7 @@ export const BoxListing = styled.main`
 
     @media(max-width: 800px){
         display: block;
+        width: 80%;
     }
 
     @media(max-width: 600px){

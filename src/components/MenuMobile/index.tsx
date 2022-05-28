@@ -69,30 +69,6 @@ export function MenuMobile({ open, handleClose, isClickToAction }: MenuMobilePro
                             <MenuItem sx={{ padding: '20px 0px' }}>
                                 <Component.Text onClick={() => setNameTabSelected("Cargos")}>Cargos</Component.Text>
                             </MenuItem>
-                            {/* <MenuItem sx={{ padding: '15px 30px' }}>
-                        <Component.Item>
-                            <Component.Icon src={Eye.src} />
-                            <Component.Text>Ver cargo</Component.Text>
-                        </Component.Item>
-                    </MenuItem>
-                    <MenuItem sx={{ padding: '15px 30px' }} disabled>
-                        <Component.Item>
-                            <Component.Icon src={Edit.src} />
-                            <Component.Text>Editar</Component.Text>
-                        </Component.Item>
-                    </MenuItem>
-                    <MenuItem sx={{ padding: '15px 30px' }} disabled>
-                        <Component.Item>
-                            <Component.Icon src={Duplicate.src} />
-                            <Component.Text>Duplicar</Component.Text>
-                        </Component.Item>
-                    </MenuItem>
-                    <MenuItem sx={{ padding: '15px 30px' }} disabled>
-                        <Component.Item>
-                            <Component.Icon src={Repeat.src} />
-                            <Component.Text>Excluir</Component.Text>
-                        </Component.Item>
-                    </MenuItem> */}
                         </Component.MenuMobile>
                     </Component.ContainerMenu>
                 }
