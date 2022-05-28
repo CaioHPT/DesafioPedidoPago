@@ -8,7 +8,7 @@ import { Autocomplete, TextField } from '@mui/material'
 import DownArrow from '../../assets/downArrow.svg'
 import { styled } from '@mui/system'
 
-const Custom = styled(Autocomplete)(() => ({
+const CustomAutoComplete = styled(Autocomplete)(() => ({
     '& label.Mui-focused': {
         color: '#587169',
     },
@@ -119,7 +119,7 @@ export function Details({ contributor }: DetailsProps) {
                     <Component.DatasOrganizationalTitle>Dados organizacionais</Component.DatasOrganizationalTitle>
                     <Component.OrganizationalData>
                         <Component.SelectedDiv>
-                            <Custom
+                            <CustomAutoComplete
                                 value={contributor.department}
                                 inputValue={contributor.department}
                                 id="controllable-states-demo"
@@ -132,7 +132,7 @@ export function Details({ contributor }: DetailsProps) {
                             />
                         </Component.SelectedDiv>
                         <Component.SelectedDiv>
-                            <Custom
+                            <CustomAutoComplete
                                 value={contributor.role}
                                 inputValue={contributor.role}
                                 id="controllable-states-demo"
@@ -145,7 +145,7 @@ export function Details({ contributor }: DetailsProps) {
                             />
                         </Component.SelectedDiv>
                         <Component.SelectedDiv>
-                            <Custom
+                            <CustomAutoComplete
                                 value={contributor.branch}
                                 inputValue={contributor.branch}
                                 id="controllable-states-demo"
@@ -158,7 +158,7 @@ export function Details({ contributor }: DetailsProps) {
                             />
                         </Component.SelectedDiv>
                         <Component.SelectedDiv>
-                            <Custom
+                            <CustomAutoComplete
                                 value={contributor.status}
                                 inputValue={contributor.status}
                                 id="controllable-states-demo"

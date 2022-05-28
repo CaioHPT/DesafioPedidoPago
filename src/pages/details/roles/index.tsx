@@ -1,13 +1,15 @@
 import Link from "next/link";
+import { GetStaticProps } from "next";
 
 import * as Component from '../../../styles/stylesDetailsRoles'
 
 import ArrowLeft from '../../../assets/arrowToBack.svg'
+
 import { TextField } from "@mui/material";
-import { Permissions } from "../../../components/Permissions";
 import { styled } from "@mui/system";
+
 import { getRolesById, RoleDetails } from "../../../services/RolesService";
-import { GetStaticProps } from "next";
+import { Permissions } from "../../../components/Permissions";
 
 const CustomTextField = styled(TextField)(() => ({
     '& label.Mui-focused': {
